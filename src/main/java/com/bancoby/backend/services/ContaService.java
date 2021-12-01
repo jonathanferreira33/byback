@@ -23,4 +23,14 @@ public class ContaService {
 		obj.setId(null);
 		return contaRepository.save(obj);
 	}
+
+	public Conta update(Integer id, Conta obj) {
+		Conta newObj = findById(id);
+		newObj.setAgencia(obj.getAgencia());
+		newObj.setSaldo(obj.getSaldo());
+		newObj.setTipo(obj.getTipo());
+		
+		return contaRepository.save(newObj);
+	}
+	
 }

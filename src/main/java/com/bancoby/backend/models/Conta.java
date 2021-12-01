@@ -37,6 +37,8 @@ public class Conta {
 	@JsonIgnoreProperties("contas")
 	private List<Acao> acoes;
 
+	private Double saldo;
+
 	public Conta() {
 	}
 
@@ -94,6 +96,14 @@ public class Conta {
 
 	public void setAcoes(List<Acao> acoes) {
 		this.acoes = acoes;
+	}
+
+	public Double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(Double saldo) {
+		this.saldo = saldo;
 	}
 
 	@Override

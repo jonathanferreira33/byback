@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +29,12 @@ public class ContaController {
 	public ResponseEntity<Conta> findById(@PathVariable Integer id) {
 		Conta obj = this.service.findById(id);
 		return ResponseEntity.ok().body(obj);
+	}
+	
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<Conta> update(@PathVariable Integer id, @RequestBody Conta obj) {
+		Conta newObj = service.update(id, obj);
+		return ResponseEntity.status(202).body(newObj);
 	}
 	
 	@PostMapping
